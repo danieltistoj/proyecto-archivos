@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package Interfaz;
-
+import Clases.PDF;
+import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -14,9 +15,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Principal
-     */
+    private String rutaArchivo;
     public Principal() {
         initComponents();
         setLocationRelativeTo(null);
@@ -180,13 +179,17 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
        JFileChooser chooser = new JFileChooser();
-       FileNameExtensionFilter filter = new FileNameExtensionFilter("Pdf file(.pdf)", "pdf");
-       chooser.setFileFilter(filter);
+       chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
        int returnVal = chooser.showOpenDialog(this);
        if(returnVal == JFileChooser.APPROVE_OPTION) {
-       System.out.println("You chose to open this file: " +
-            chooser.getSelectedFile().getName());
-    }
+            File dir = chooser.getSelectedFile();
+            this.rutaArchivo = dir.getAbsolutePath();
+            if(dir.isDirectory()){
+                System.out.println("Directorio");
+            }else{
+                System.out.println("Archivo");
+            }
+        }
     }//GEN-LAST:event_btnCargarActionPerformed
 
     /**
