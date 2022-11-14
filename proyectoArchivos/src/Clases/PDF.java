@@ -5,10 +5,18 @@
  */
 package Clases;
 
+import java.io.File;
+
 /**
  *
  * @author Usuario
  */
 public class PDF {
     
+     PDF(File archivo){
+        
+    }
+    public String getVersion(){
+        return "";
+    }
 }
