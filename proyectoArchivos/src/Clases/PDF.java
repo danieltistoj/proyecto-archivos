@@ -20,7 +20,7 @@ public class PDF {
       private String version;
       private File archivo;
     
-     PDF(File archivo){
+     public PDF(File archivo){
         this.archivo = archivo;
     }
     public String getVersion(){ 

@@ -199,7 +199,8 @@ public class Principal extends javax.swing.JFrame {
             if(dir.isDirectory()){
                 System.out.println("Directorio");
             }else{
-                System.out.println("Archivo");
+                PDF pdf = new PDF(dir);
+                System.out.println(pdf.getVersion());
             }
         }
     }//GEN-LAST:event_btnCargarActionPerformed
