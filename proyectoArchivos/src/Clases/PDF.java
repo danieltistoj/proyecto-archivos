@@ -37,4 +37,9 @@ public class PDF {
         }
           return this.version;
     }
+    public String SizePdf(){
+        int size = (int) this.archivo.length();
+        String sizeString = String.valueOf(size) + " bytes ";
+        return sizeString;
+    }
 }

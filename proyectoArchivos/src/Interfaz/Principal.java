@@ -200,7 +200,8 @@ public class Principal extends javax.swing.JFrame {
                 System.out.println("Directorio");
             }else{
                 PDF pdf = new PDF(dir);
-                System.out.println(pdf.getVersion());
+                this.txtVersion.setText(pdf.getVersion());
+                this.txtSizeArchivo.setText(pdf.SizePdf());
             }
         }
     }//GEN-LAST:event_btnCargarActionPerformed
