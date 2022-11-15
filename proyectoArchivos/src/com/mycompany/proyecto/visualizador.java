@@ -359,7 +359,7 @@ Edicion e = new Edicion();
         
         String[] parts = TituloE.split("\\.");
         String part1 = parts[0]+".dat"; // 004
-        System.out.println(part1);
+        
 
         
     }//GEN-LAST:event_EditarBotonActionPerformed
