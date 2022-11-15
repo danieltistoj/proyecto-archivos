@@ -3,13 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
 
-package com.mycompany.proyect2;
+package com.mycompany.WriteMetaData;
 
 /**
  *
  * @author elmer
  */
-public class Proyect2 {
+public class Proyecto {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");

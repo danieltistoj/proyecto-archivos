@@ -3,29 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.proyect2;
+package com.mycompany.ReadMetaData;
 
-import java.awt.Component;
-import java.awt.PopupMenu;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 import javax.swing.JFileChooser;
 
-/**
- *
- * @author elmer
- */
-public class formBinaryFile extends javax.swing.JDialog {
 
-    ArrayList<PDF> pdfs = new ArrayList<PDF>();
+public class formMetadata extends javax.swing.JDialog {
+    ArrayList<PDF> pdfs=new ArrayList<PDF>();
 
     /**
-     * Creates new form formBinaryFile
+     * Creates new form formMetadata
      */
-    public formBinaryFile(java.awt.Frame parent, boolean modal) {
+    public formMetadata(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
@@ -40,6 +33,7 @@ public class formBinaryFile extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         Background = new javax.swing.JPanel();
         btnExplore = new javax.swing.JButton();
         btnSafe = new javax.swing.JButton();
@@ -76,16 +70,19 @@ public class formBinaryFile extends javax.swing.JDialog {
         moddateField = new javax.swing.JTextField();
         creatorField = new javax.swing.JTextField();
         producerField = new javax.swing.JTextField();
+        metadataLabel1 = new javax.swing.JLabel();
         btnChanges = new javax.swing.JButton();
         documentLabel = new javax.swing.JLabel();
         documentField = new javax.swing.JTextField();
 
+        jLabel1.setText("jLabel1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         Background.setBackground(new java.awt.Color(204, 204, 204));
-        Background.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "LEER ARCHIVO BINARIO   ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), new java.awt.Color(0, 51, 255))); // NOI18N
+        Background.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "LEER METADATOS PDF   ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), new java.awt.Color(0, 51, 255))); // NOI18N
 
-        btnExplore.setBackground(new java.awt.Color(0, 51, 255));
+        btnExplore.setBackground(new java.awt.Color(255, 153, 51));
         btnExplore.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnExplore.setForeground(new java.awt.Color(255, 255, 255));
         btnExplore.setText("EXPLORAR");
@@ -103,9 +100,10 @@ public class formBinaryFile extends javax.swing.JDialog {
             }
         });
 
-        filesPanel.setBackground(new java.awt.Color(255, 255, 255));
-        filesPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        filesPanel.setBackground(new java.awt.Color(204, 204, 204));
+        filesPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
+        filesList.setBackground(new java.awt.Color(204, 204, 204));
         filesList.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         filesList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -121,11 +119,15 @@ public class formBinaryFile extends javax.swing.JDialog {
         );
         filesPanelLayout.setVerticalGroup(
             filesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(filesList, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filesPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(filesList, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        metadataPanel.setBackground(new java.awt.Color(255, 255, 255));
-        metadataPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jScrollPane1.setBackground(new java.awt.Color(153, 153, 153));
+
+        metadataPanel.setBackground(new java.awt.Color(204, 204, 204));
+        metadataPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         nameLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         nameLabel.setText("Nombre:");
@@ -154,9 +156,9 @@ public class formBinaryFile extends javax.swing.JDialog {
             }
         });
 
-        metadataLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        metadataLabel.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
         metadataLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        metadataLabel.setText("Metadatos:");
+        metadataLabel.setText("Información del PDF");
 
         pagesLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         pagesLabel.setText("Paginas:");
@@ -257,6 +259,10 @@ public class formBinaryFile extends javax.swing.JDialog {
             }
         });
 
+        metadataLabel1.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        metadataLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        metadataLabel1.setText("Metadatos:");
+
         javax.swing.GroupLayout metadataPanelLayout = new javax.swing.GroupLayout(metadataPanel);
         metadataPanel.setLayout(metadataPanelLayout);
         metadataPanelLayout.setHorizontalGroup(
@@ -264,83 +270,89 @@ public class formBinaryFile extends javax.swing.JDialog {
             .addGroup(metadataPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(creationdateLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(creationdateField))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(producerLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(producerField))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(subjectLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(subjectField))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(keywordsLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(keywordsField))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(fontsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fontsField))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(imagesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(imagesField))
-                    .addComponent(metadataLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(sizeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sizeField))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(versionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameField)
-                            .addComponent(versionField)))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(pagesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pagesField))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(titleField))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(authorLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(authorField))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, metadataPanelLayout.createSequentialGroup()
-                        .addComponent(moddateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(moddateField, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(creatorLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(creatorField)))
-                .addGap(19, 19, 19))
+                        .addComponent(metadataLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, metadataPanelLayout.createSequentialGroup()
+                        .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addComponent(pagesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pagesField, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(imagesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(imagesField, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(metadataLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addComponent(creationdateLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(creationdateField))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addComponent(producerLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(producerField))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addComponent(subjectLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(subjectField))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addComponent(keywordsLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(keywordsField))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addComponent(fontsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fontsField))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(versionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nameField)
+                                    .addGroup(metadataPanelLayout.createSequentialGroup()
+                                        .addComponent(versionField, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(sizeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(sizeField))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(titleField))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addComponent(authorLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(authorField))
+                            .addGroup(metadataPanelLayout.createSequentialGroup()
+                                .addComponent(moddateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(moddateField))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addComponent(creatorLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(creatorField)))
+                        .addGap(19, 19, 19))))
         );
         metadataPanelLayout.setVerticalGroup(
             metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(metadataPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(28, 28, 28)
+                .addComponent(metadataLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
                 .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(nameField)
-                    .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(versionLabel)
-                    .addComponent(versionField))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(versionField)
                     .addComponent(sizeLabel)
-                    .addComponent(sizeField))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(metadataLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(sizeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addComponent(metadataLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(titleLabel)
                     .addComponent(titleField))
@@ -375,16 +387,14 @@ public class formBinaryFile extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pagesLabel)
-                    .addComponent(pagesField))
+                    .addComponent(pagesField)
+                    .addComponent(imagesLabel)
+                    .addComponent(imagesField))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fontsLabel)
-                    .addComponent(fontsField))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(imagesLabel)
-                    .addComponent(imagesField))
-                .addGap(98, 98, 98))
+                    .addComponent(fontsField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(126, 126, 126))
         );
 
         jScrollPane1.setViewportView(metadataPanel);
@@ -418,7 +428,7 @@ public class formBinaryFile extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnSafe, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackgroundLayout.createSequentialGroup()
-                                .addComponent(documentField, javax.swing.GroupLayout.DEFAULT_SIZE, 954, Short.MAX_VALUE)
+                                .addComponent(documentField, javax.swing.GroupLayout.DEFAULT_SIZE, 932, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnExplore, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -427,17 +437,16 @@ public class formBinaryFile extends javax.swing.JDialog {
         BackgroundLayout.setVerticalGroup(
             BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BackgroundLayout.createSequentialGroup()
-                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnExplore, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnExplore, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                     .addGroup(BackgroundLayout.createSequentialGroup()
                         .addGap(7, 7, 7)
-                        .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(documentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(documentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(10, 10, 10)
-                .addComponent(filesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
+                        .addComponent(documentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(documentField, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(filesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSafe, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -456,41 +465,81 @@ public class formBinaryFile extends javax.swing.JDialog {
             .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        Background.getAccessibleContext().setAccessibleName("Metadatos");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     public  void mostrarCarpeta(File fichero) {
+        
+        if (fichero.isDirectory()) {
+            File[] lista = fichero.listFiles();
+            for (int i = 0; i < lista.length; i++) {
+                String name = lista[i].getName();
+
+                if (lista[i].isDirectory()) {
+                    mostrarCarpeta(lista[i]);
+                } else {
+                    if (isPDF(name)) {
+                        System.out.println(lista[i].getName());
+                        String path=lista[i].getAbsolutePath().replace("\\", "/");
+                        PdfMetadata pdf=new PdfMetadata(path);
+                        pdfs.add(pdf.getPdf());
+                        pdf.ShowInfo();
+                        
+                        
+                        
+                        filesList.add(pdfs.get(i).getName());
+                    }
+                }
+            }
+        }
+    }
+   
+    /**
+     * Metodo para determinar si un fichero es extension PDF
+     * @param name path del fichero
+     * @return booleano si es PDF
+     */
+    public boolean isPDF(String name) {
+
+        int len = name.length();
+        String res = "";
+        char letter = name.charAt(len - 4);
+        res += letter;
+        letter = name.charAt(len - 3);
+        res += String.valueOf(letter);
+        letter = name.charAt(len - 2);
+        res += String.valueOf(letter);
+        letter = name.charAt(len - 1);
+        res += String.valueOf(letter);
+        if (res.equals(".pdf")) {
+            System.out.println("PDF:");
+            return true;
+        }
+
+        return false;
+
+    }
+    
     public void enableChangesButton() {
         if (!nameField.getText().isEmpty()) {
             btnChanges.setEnabled(true);
-        } else {
+        }
+        else {
             btnChanges.setEnabled(false);
         }
     }
-
+    
     private void btnExploreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExploreActionPerformed
         JFileChooser filechooser = new JFileChooser();
-        filechooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        filechooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         int selection = filechooser.showOpenDialog(this);
         if (selection == JFileChooser.APPROVE_OPTION) {
             File file = filechooser.getSelectedFile();
-            ReadBinaryFile read = new ReadBinaryFile();
-            read.ReadFile(file.getName());
-            String documentName = file.getName().replace(".bin", "");
-            documentField.setText(documentName);
-            pdfs = read.getPdfList();
-            for (int i = 0; i < pdfs.size(); i++) {
-                filesList.add(pdfs.get(i).getName());
-            }
+            this.mostrarCarpeta(file);
         }
     }//GEN-LAST:event_btnExploreActionPerformed
-
-    private void btnSafeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSafeActionPerformed
-        String name = documentField.getText();
-        WriteBinaryFile write = new WriteBinaryFile(pdfs);
-        write.writeFile(name);
-
-
-    }//GEN-LAST:event_btnSafeActionPerformed
 
     private void filesListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_filesListMouseClicked
         nameField.setText(pdfs.get(filesList.getSelectedIndex()).getName());
@@ -507,9 +556,34 @@ public class formBinaryFile extends javax.swing.JDialog {
         pagesField.setText(Integer.toString(pdfs.get(filesList.getSelectedIndex()).getPages()));
         fontsField.setText(pdfs.get(filesList.getSelectedIndex()).getFonts().toString());
         imagesField.setText(Integer.toString(pdfs.get(filesList.getSelectedIndex()).getImages()));
-
-        
     }//GEN-LAST:event_filesListMouseClicked
+
+    private void btnSafeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSafeActionPerformed
+        String name = documentField.getText();
+        WriteBinaryFile write=new WriteBinaryFile(pdfs);
+        write.writeFile(name);
+    }//GEN-LAST:event_btnSafeActionPerformed
+
+    private void btnChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangesActionPerformed
+       HashMap<String, String> metadataMap = new HashMap<>();
+       metadataMap.put("Title", titleField.getText());
+       metadataMap.put("Subject", subjectField.getText());
+       metadataMap.put("Keywords", keywordsField.getText());
+       metadataMap.put("Author", authorField.getText());
+       metadataMap.put("CreationDate", creationdateField.getText());
+       metadataMap.put("ModDate", moddateField.getText());
+       metadataMap.put("Creator", creationdateField.getText());
+       metadataMap.put("Producer", producerField.getText());
+        ArrayList<String> fontsList = new ArrayList<String>(Arrays.asList(fontsField.getText()));
+        
+        pdfs.get(filesList.getSelectedIndex()).setName(nameField.getText());
+        pdfs.get(filesList.getSelectedIndex()).setVersion(versionField.getText());
+        pdfs.get(filesList.getSelectedIndex()).setSize(Long.parseLong(sizeField.getText()));
+        pdfs.get(filesList.getSelectedIndex()).setMetadata(metadataMap);
+        pdfs.get(filesList.getSelectedIndex()).setPages(Integer.parseInt(pagesField.getText()));
+        pdfs.get(filesList.getSelectedIndex()).setFonts(fontsList);
+        pdfs.get(filesList.getSelectedIndex()).setImages(Integer.parseInt(imagesField.getText()));
+    }//GEN-LAST:event_btnChangesActionPerformed
 
     private void nameFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameFieldKeyReleased
         enableChangesButton();
@@ -522,18 +596,6 @@ public class formBinaryFile extends javax.swing.JDialog {
     private void sizeFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sizeFieldKeyReleased
         enableChangesButton();
     }//GEN-LAST:event_sizeFieldKeyReleased
-
-    private void pagesFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pagesFieldKeyReleased
-        enableChangesButton();
-    }//GEN-LAST:event_pagesFieldKeyReleased
-
-    private void fontsFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fontsFieldKeyReleased
-        enableChangesButton();
-    }//GEN-LAST:event_fontsFieldKeyReleased
-
-    private void imagesFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_imagesFieldKeyReleased
-        enableChangesButton();
-    }//GEN-LAST:event_imagesFieldKeyReleased
 
     private void titleFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_titleFieldKeyReleased
         enableChangesButton();
@@ -567,27 +629,17 @@ public class formBinaryFile extends javax.swing.JDialog {
         enableChangesButton();
     }//GEN-LAST:event_producerFieldKeyReleased
 
-    private void btnChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangesActionPerformed
-        // TODO add your handling code here:
-        HashMap<String, String> metadataMap = new HashMap<>();
-        metadataMap.put("Title", titleField.getText());
-        metadataMap.put("Subject", subjectField.getText());
-        metadataMap.put("Keywords", keywordsField.getText());
-        metadataMap.put("Author", authorField.getText());
-        metadataMap.put("CreationDate", creationdateField.getText());
-        metadataMap.put("ModDate", moddateField.getText());
-        metadataMap.put("Creator", creationdateField.getText());
-        metadataMap.put("Producer", producerField.getText());
-        ArrayList<String> fontsList = new ArrayList<String>(Arrays.asList(fontsField.getText()));
+    private void pagesFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pagesFieldKeyReleased
+        enableChangesButton();
+    }//GEN-LAST:event_pagesFieldKeyReleased
 
-        pdfs.get(filesList.getSelectedIndex()).setName(nameField.getText());
-        pdfs.get(filesList.getSelectedIndex()).setVersion(versionField.getText());
-        pdfs.get(filesList.getSelectedIndex()).setSize(Long.parseLong(sizeField.getText()));
-        pdfs.get(filesList.getSelectedIndex()).setMetadata(metadataMap);
-        pdfs.get(filesList.getSelectedIndex()).setPages(Integer.parseInt(pagesField.getText()));
-        pdfs.get(filesList.getSelectedIndex()).setFonts(fontsList);
-        pdfs.get(filesList.getSelectedIndex()).setImages(Integer.parseInt(imagesField.getText()));
-    }//GEN-LAST:event_btnChangesActionPerformed
+    private void fontsFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fontsFieldKeyReleased
+        enableChangesButton();
+    }//GEN-LAST:event_fontsFieldKeyReleased
+
+    private void imagesFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_imagesFieldKeyReleased
+        enableChangesButton();
+    }//GEN-LAST:event_imagesFieldKeyReleased
 
     /**
      * @param args the command line arguments
@@ -606,13 +658,13 @@ public class formBinaryFile extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(formBinaryFile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formMetadata.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(formBinaryFile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formMetadata.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(formBinaryFile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formMetadata.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(formBinaryFile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formMetadata.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -620,7 +672,7 @@ public class formBinaryFile extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                formBinaryFile dialog = new formBinaryFile(new javax.swing.JFrame(), true);
+                formMetadata dialog = new formMetadata(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -651,10 +703,12 @@ public class formBinaryFile extends javax.swing.JDialog {
     private javax.swing.JLabel fontsLabel;
     private javax.swing.JTextField imagesField;
     private javax.swing.JLabel imagesLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField keywordsField;
     private javax.swing.JLabel keywordsLabel;
     private javax.swing.JLabel metadataLabel;
+    private javax.swing.JLabel metadataLabel1;
     private javax.swing.JPanel metadataPanel;
     private javax.swing.JTextField moddateField;
     private javax.swing.JLabel moddateLabel;

@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package Interfaz;
-import com.mycompany.proyect2.*;
-import com.mycompany.proyecto.*;
+import com.mycompany.WriteMetaData.visualizador;
+import com.mycompany.ReadMetaData.formMetadata;
 import java.awt.Color;
 
 /**

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.archivosbinarios;
+package Clases;
 
 /**
  *
@@ -16,11 +16,11 @@ public class Principal {
      */
     public static void main(String[] args) { 
        String ruta = "src/main/java/com/mycompany/archivos/archivo.dat";
-       Metodos met = new Metodos();
+      // Metodos met = new Metodos();
       // met.crearArchivo(ruta);
-       Persona persona = new Persona("Jose","Tistoj",23,"Guatemala");
-       met.escribir(ruta, persona);
-       met.leer(ruta);
+//       Persona persona = new Persona("Jose","Tistoj",23,"Guatemala");
+//       met.escribir(ruta, persona);
+//       met.leer(ruta);
     }
     
 }

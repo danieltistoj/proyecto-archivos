@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.proyect2;
+package com.mycompany.ReadMetaData;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
