@@ -17,10 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * @author Adrian Quixivix, Jose Chocoy, Emilio medina , Andre Gordillo
- * Clase para extraer metadatos demanera binaria de un fichero PDF
- */
+
 
 public class PdfMetadata {
     
