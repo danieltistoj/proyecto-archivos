@@ -74,6 +74,7 @@ Edicion e = new Edicion();
         CargarBoton = new javax.swing.JToggleButton();
         EditarBoton = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
+        CargarBoton1 = new javax.swing.JToggleButton();
 
         jMenu3.setText("jMenu3");
 
@@ -158,7 +159,7 @@ Edicion e = new Edicion();
         EditarBoton.setBackground(new java.awt.Color(153, 153, 153));
         EditarBoton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         EditarBoton.setForeground(new java.awt.Color(0, 0, 0));
-        EditarBoton.setText("EDITAR Y GUARDAR");
+        EditarBoton.setText(" GUARDAR");
         EditarBoton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         EditarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,20 +172,33 @@ Edicion e = new Edicion();
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("DATOS DEL PDF");
 
+        CargarBoton1.setBackground(new java.awt.Color(153, 153, 153));
+        CargarBoton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        CargarBoton1.setForeground(new java.awt.Color(0, 0, 0));
+        CargarBoton1.setText("Archivo Binario");
+        CargarBoton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CargarBoton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CargarBoton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(271, 271, 271)
+                .addGap(163, 163, 163)
+                .addComponent(CargarBoton1)
+                .addGap(45, 45, 45)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addGap(6, 6, 6)
                         .addComponent(CargarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(EditarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(204, Short.MAX_VALUE))
+                        .addGap(37, 37, 37)
+                        .addComponent(EditarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(224, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,9 +206,10 @@ Edicion e = new Edicion();
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(CargarBoton, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                    .addComponent(EditarBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EditarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CargarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CargarBoton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14))
         );
 
@@ -289,7 +304,7 @@ Edicion e = new Edicion();
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtPClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -359,10 +374,23 @@ Edicion e = new Edicion();
         
         String[] parts = TituloE.split("\\.");
         String part1 = parts[0]+".dat"; // 004
-        
-
+        String ruta = "src/Archivos/"+part1;
+        met.escribir(ruta, aux);
         
     }//GEN-LAST:event_EditarBotonActionPerformed
+
+    private void CargarBoton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarBoton1ActionPerformed
+        Metadatos met = new Metadatos();
+        JFileChooser pdfruta = new JFileChooser();
+        pdfruta.setDialogTitle("Seleccione el archivo");
+        pdfruta.setFileSelectionMode(JFileChooser.APPROVE_OPTION);
+        if(pdfruta.showOpenDialog(this) == JFileChooser.APPROVE_OPTION){
+            File archivo = pdfruta.getSelectedFile();
+            String ruta = archivo.getAbsolutePath();
+            met.leer(ruta);
+            
+        }
+    }//GEN-LAST:event_CargarBoton1ActionPerformed
 
     
     /**
@@ -457,6 +485,7 @@ Edicion e = new Edicion();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton CargarBoton;
+    private javax.swing.JToggleButton CargarBoton1;
     private javax.swing.JToggleButton EditarBoton;
     private javax.swing.JTextField TxtApp;
     private javax.swing.JTextField TxtAsunto;

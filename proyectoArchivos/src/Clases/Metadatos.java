@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Usuario
@@ -35,6 +36,12 @@ public class Metadatos {
             file.close();
             //Se utilizan metodos de la clase asi como variables guardados en el objeto
             System.out.println("Nombre: "+pdf.getTitulo());
+            JOptionPane.showMessageDialog(null,"Nombre: "+pdf.getTitulo()+"\n"
+             +"No. Paginas: "+pdf.getNoPaginas()+"\n"
+             +"Tamaño archivo: "+pdf.getTamArchivo()+"\n"
+             +"Num. paginas: "+pdf.getNoPaginas()+"\n"
+             +"Num. imagenes: "+pdf.getImagenes()
+            );
         } catch (ClassNotFoundException ex) {
              System.out.println(ex);
         } catch (IOException ex) {
