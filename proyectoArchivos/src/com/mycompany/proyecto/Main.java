@@ -3,22 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectoarchivos;
-import Interfaz.*;
+package com.mycompany.proyecto;
 
 /**
  *
- * @author Usuario
+ * @author Peke
  */
-public class ProyectoArchivos {
-
+public class Main {
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        Menu principal = new Menu();
-        principal.setVisible(true);
+        visualizador form = new visualizador();
+        form.setVisible(true);
     }
     
 }
