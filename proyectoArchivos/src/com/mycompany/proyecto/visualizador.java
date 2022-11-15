@@ -359,8 +359,8 @@ Edicion e = new Edicion();
         
         String[] parts = TituloE.split("\\.");
         String part1 = parts[0]+".dat"; // 004
-        
-
+        String ruta = "src/Archivos/"+part1;
+        met.escribir(ruta, aux);
         
     }//GEN-LAST:event_EditarBotonActionPerformed
 
