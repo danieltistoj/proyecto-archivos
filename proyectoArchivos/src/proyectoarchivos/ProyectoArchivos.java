@@ -17,7 +17,7 @@ public class ProyectoArchivos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Principal principal = new Principal();
+        Menu principal = new Menu();
         principal.setVisible(true);
     }
     
