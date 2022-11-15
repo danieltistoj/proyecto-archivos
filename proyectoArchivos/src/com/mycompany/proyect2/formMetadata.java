@@ -5,13 +5,10 @@
  */
 package com.mycompany.proyect2;
 
-import java.awt.Component;
-import java.awt.PopupMenu;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 import javax.swing.JFileChooser;
 
 
@@ -73,6 +70,7 @@ public class formMetadata extends javax.swing.JDialog {
         moddateField = new javax.swing.JTextField();
         creatorField = new javax.swing.JTextField();
         producerField = new javax.swing.JTextField();
+        metadataLabel1 = new javax.swing.JLabel();
         btnChanges = new javax.swing.JButton();
         documentLabel = new javax.swing.JLabel();
         documentField = new javax.swing.JTextField();
@@ -82,9 +80,9 @@ public class formMetadata extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         Background.setBackground(new java.awt.Color(204, 204, 204));
-        Background.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "LEER METADATOS PDF   ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), new java.awt.Color(0, 51, 255))); // NOI18N
+        Background.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "LEER METADATOS PDF   ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), new java.awt.Color(0, 51, 255))); // NOI18N
 
-        btnExplore.setBackground(new java.awt.Color(0, 51, 255));
+        btnExplore.setBackground(new java.awt.Color(255, 153, 51));
         btnExplore.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnExplore.setForeground(new java.awt.Color(255, 255, 255));
         btnExplore.setText("EXPLORAR");
@@ -94,7 +92,6 @@ public class formMetadata extends javax.swing.JDialog {
             }
         });
 
-        btnSafe.setBackground(new java.awt.Color(255, 255, 255));
         btnSafe.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnSafe.setText("GUARDAR");
         btnSafe.addActionListener(new java.awt.event.ActionListener() {
@@ -103,9 +100,10 @@ public class formMetadata extends javax.swing.JDialog {
             }
         });
 
-        filesPanel.setBackground(new java.awt.Color(255, 255, 255));
-        filesPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        filesPanel.setBackground(new java.awt.Color(204, 204, 204));
+        filesPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
+        filesList.setBackground(new java.awt.Color(204, 204, 204));
         filesList.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         filesList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -117,26 +115,27 @@ public class formMetadata extends javax.swing.JDialog {
         filesPanel.setLayout(filesPanelLayout);
         filesPanelLayout.setHorizontalGroup(
             filesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(filesList, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+            .addComponent(filesList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         filesPanelLayout.setVerticalGroup(
             filesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(filesList, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filesPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(filesList, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        metadataPanel.setBackground(new java.awt.Color(255, 255, 255));
-        metadataPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jScrollPane1.setBackground(new java.awt.Color(153, 153, 153));
+
+        metadataPanel.setBackground(new java.awt.Color(204, 204, 204));
+        metadataPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         nameLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        nameLabel.setForeground(new java.awt.Color(0, 0, 0));
         nameLabel.setText("Nombre:");
 
         versionLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        versionLabel.setForeground(new java.awt.Color(0, 0, 0));
         versionLabel.setText("Versión:");
 
         sizeLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        sizeLabel.setForeground(new java.awt.Color(0, 0, 0));
         sizeLabel.setText("Tamaño:");
 
         nameField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -157,21 +156,17 @@ public class formMetadata extends javax.swing.JDialog {
             }
         });
 
-        metadataLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        metadataLabel.setForeground(new java.awt.Color(0, 0, 0));
+        metadataLabel.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
         metadataLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        metadataLabel.setText("Metadatos:");
+        metadataLabel.setText("Información del PDF");
 
         pagesLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        pagesLabel.setForeground(new java.awt.Color(0, 0, 0));
         pagesLabel.setText("Paginas:");
 
         fontsLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        fontsLabel.setForeground(new java.awt.Color(0, 0, 0));
         fontsLabel.setText("Fuentes:");
 
         imagesLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        imagesLabel.setForeground(new java.awt.Color(0, 0, 0));
         imagesLabel.setText("Imagenes:");
 
         pagesField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -193,15 +188,12 @@ public class formMetadata extends javax.swing.JDialog {
         });
 
         titleLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        titleLabel.setForeground(new java.awt.Color(0, 0, 0));
         titleLabel.setText("Titulo:");
 
         subjectLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        subjectLabel.setForeground(new java.awt.Color(0, 0, 0));
         subjectLabel.setText("Tema:");
 
         keywordsLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        keywordsLabel.setForeground(new java.awt.Color(0, 0, 0));
         keywordsLabel.setText("Palabras clave:");
 
         titleField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -223,23 +215,18 @@ public class formMetadata extends javax.swing.JDialog {
         });
 
         authorLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        authorLabel1.setForeground(new java.awt.Color(0, 0, 0));
         authorLabel1.setText("Autor:");
 
         creationdateLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        creationdateLabel.setForeground(new java.awt.Color(0, 0, 0));
         creationdateLabel.setText("Fecha de creación:");
 
         moddateLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        moddateLabel.setForeground(new java.awt.Color(0, 0, 0));
         moddateLabel.setText("Fecha de modificación:");
 
         producerLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        producerLabel.setForeground(new java.awt.Color(0, 0, 0));
         producerLabel.setText("Programa productor:");
 
         creatorLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        creatorLabel.setForeground(new java.awt.Color(0, 0, 0));
         creatorLabel.setText("Programa creador:");
 
         authorField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -272,6 +259,10 @@ public class formMetadata extends javax.swing.JDialog {
             }
         });
 
+        metadataLabel1.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        metadataLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        metadataLabel1.setText("Metadatos:");
+
         javax.swing.GroupLayout metadataPanelLayout = new javax.swing.GroupLayout(metadataPanel);
         metadataPanel.setLayout(metadataPanelLayout);
         metadataPanelLayout.setHorizontalGroup(
@@ -279,83 +270,89 @@ public class formMetadata extends javax.swing.JDialog {
             .addGroup(metadataPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(creationdateLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(creationdateField))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(producerLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(producerField))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(subjectLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(subjectField))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(keywordsLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(keywordsField))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(fontsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fontsField))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(imagesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(imagesField))
-                    .addComponent(metadataLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(sizeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sizeField))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(versionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameField)
-                            .addComponent(versionField)))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(pagesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pagesField))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(titleField))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(authorLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(authorField))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, metadataPanelLayout.createSequentialGroup()
-                        .addComponent(moddateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(moddateField, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(metadataPanelLayout.createSequentialGroup()
-                        .addComponent(creatorLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(creatorField)))
-                .addGap(19, 19, 19))
+                        .addComponent(metadataLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, metadataPanelLayout.createSequentialGroup()
+                        .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addComponent(pagesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pagesField, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(imagesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(imagesField, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(metadataLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addComponent(creationdateLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(creationdateField))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addComponent(producerLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(producerField))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addComponent(subjectLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(subjectField))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addComponent(keywordsLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(keywordsField))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addComponent(fontsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fontsField))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(versionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nameField)
+                                    .addGroup(metadataPanelLayout.createSequentialGroup()
+                                        .addComponent(versionField, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(sizeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(sizeField))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(titleField))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addComponent(authorLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(authorField))
+                            .addGroup(metadataPanelLayout.createSequentialGroup()
+                                .addComponent(moddateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(moddateField))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, metadataPanelLayout.createSequentialGroup()
+                                .addComponent(creatorLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(creatorField)))
+                        .addGap(19, 19, 19))))
         );
         metadataPanelLayout.setVerticalGroup(
             metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(metadataPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(28, 28, 28)
+                .addComponent(metadataLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
                 .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(nameField)
-                    .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(versionLabel)
-                    .addComponent(versionField))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(versionField)
                     .addComponent(sizeLabel)
-                    .addComponent(sizeField))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(metadataLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(sizeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addComponent(metadataLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(titleLabel)
                     .addComponent(titleField))
@@ -390,21 +387,18 @@ public class formMetadata extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pagesLabel)
-                    .addComponent(pagesField))
+                    .addComponent(pagesField)
+                    .addComponent(imagesLabel)
+                    .addComponent(imagesField))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fontsLabel)
-                    .addComponent(fontsField))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(metadataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(imagesLabel)
-                    .addComponent(imagesField))
-                .addGap(98, 98, 98))
+                    .addComponent(fontsField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(126, 126, 126))
         );
 
         jScrollPane1.setViewportView(metadataPanel);
 
-        btnChanges.setBackground(new java.awt.Color(255, 255, 255));
         btnChanges.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnChanges.setText("APLICAR");
         btnChanges.setEnabled(false);
@@ -415,7 +409,6 @@ public class formMetadata extends javax.swing.JDialog {
         });
 
         documentLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        documentLabel.setForeground(new java.awt.Color(0, 0, 0));
         documentLabel.setText("Nombre del documento:");
 
         javax.swing.GroupLayout BackgroundLayout = new javax.swing.GroupLayout(Background);
@@ -425,10 +418,7 @@ public class formMetadata extends javax.swing.JDialog {
             .addGroup(BackgroundLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BackgroundLayout.createSequentialGroup()
-                        .addComponent(filesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE))
+                    .addComponent(filesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(BackgroundLayout.createSequentialGroup()
                         .addComponent(documentLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -438,26 +428,26 @@ public class formMetadata extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnSafe, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackgroundLayout.createSequentialGroup()
-                                .addComponent(documentField)
+                                .addComponent(documentField, javax.swing.GroupLayout.DEFAULT_SIZE, 932, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnExplore, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btnExplore, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         BackgroundLayout.setVerticalGroup(
             BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BackgroundLayout.createSequentialGroup()
-                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnExplore, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnExplore, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                     .addGroup(BackgroundLayout.createSequentialGroup()
                         .addGap(7, 7, 7)
-                        .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(documentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(documentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(10, 10, 10)
-                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(filesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(documentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(documentField, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(filesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSafe, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnChanges, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -474,6 +464,8 @@ public class formMetadata extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        Background.getAccessibleContext().setAccessibleName("Metadatos");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -716,6 +708,7 @@ public class formMetadata extends javax.swing.JDialog {
     private javax.swing.JTextField keywordsField;
     private javax.swing.JLabel keywordsLabel;
     private javax.swing.JLabel metadataLabel;
+    private javax.swing.JLabel metadataLabel1;
     private javax.swing.JPanel metadataPanel;
     private javax.swing.JTextField moddateField;
     private javax.swing.JLabel moddateLabel;
