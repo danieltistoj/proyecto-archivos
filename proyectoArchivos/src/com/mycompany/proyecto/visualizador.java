@@ -18,10 +18,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.nio.file.DirectoryStream.Filter;
 import java.util.Arrays;
 
-/**
- *
- * @author 
- */
+import Clases.*;
 public class visualizador extends javax.swing.JFrame {
 Lista list = new Lista();
 Pdf aux;
@@ -335,8 +332,8 @@ Edicion e = new Edicion();
 
     private void EditarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarBotonActionPerformed
  
-        System.out.println(TxtTamArchivo.getText());
         aux = new Pdf();
+        Metadatos met = new Metadatos();
         aux.setTamArchivo(TxtTamArchivo.getText());
         String TamArchivoE = TxtTamArchivo.getText();
         aux.setTamPaginas(TxtTamPaginas.getText());
@@ -359,16 +356,12 @@ Edicion e = new Edicion();
         String ImagenesE = TxtImagenes.getText();
         aux.setFuentes(TxtFuentes.getText());
         String FuentesE = TxtFuentes.getText();
-       
-        aux = aux.getSiguiente();
         
-        
-        //String TamArchivo,String TamPaginas,String NoPaginas,String Titulo,String Asunto, String PClave,String Tipo,String version,String app,String imagenes,String fuentes){
-      
-        list.agregarAlInicio(TamArchivoE, TamPaginasE + "m.m", NoPaginasE, TituloE, AsuntoE, PClaveE, TipoE, VersionE, AppE, ImagenesE, FuentesE);
-        e.edicion(list);
-                                            
+        String[] parts = TituloE.split("\\.");
+        String part1 = parts[0]+".dat"; // 004
+        System.out.println(part1);
 
+        
     }//GEN-LAST:event_EditarBotonActionPerformed
 
     
