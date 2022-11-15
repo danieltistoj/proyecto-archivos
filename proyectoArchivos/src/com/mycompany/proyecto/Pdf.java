@@ -5,11 +5,13 @@
  */
 package com.mycompany.proyecto;
 
+import java.io.Serializable;
+
 /**
  *
- * @author Peke
+ * @author 
  */
-public class Pdf {
+public class Pdf implements Serializable {
     private String ruta; 
     private String TamArchivo;
     private String TamPaginas;

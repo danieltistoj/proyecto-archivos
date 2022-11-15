@@ -7,7 +7,7 @@ package com.mycompany.proyecto;
 
 /**
  *
- * @author Peke
+ * @author 
  */
 public class Lista {
     private Pdf inicio;

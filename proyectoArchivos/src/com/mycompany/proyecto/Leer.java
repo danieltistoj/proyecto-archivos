@@ -1,7 +1,7 @@
 package com.mycompany.proyecto;
 /**
  *
- * @author Peke
+ * @author 
  */
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Peke
+ * @author 
  */
 
 public class Leer {

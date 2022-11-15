@@ -20,7 +20,7 @@ import java.util.Arrays;
 
 /**
  *
- * @author Peke
+ * @author 
  */
 public class visualizador extends javax.swing.JFrame {
 Lista list = new Lista();
@@ -335,8 +335,9 @@ Edicion e = new Edicion();
 
     private void EditarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarBotonActionPerformed
  
-        
-       aux.setTamArchivo(TxtTamArchivo.getText());
+        System.out.println(TxtTamArchivo.getText());
+        aux = new Pdf();
+        aux.setTamArchivo(TxtTamArchivo.getText());
         String TamArchivoE = TxtTamArchivo.getText();
         aux.setTamPaginas(TxtTamPaginas.getText());
         String TamPaginasE = TxtTamPaginas.getText();
@@ -366,7 +367,7 @@ Edicion e = new Edicion();
       
         list.agregarAlInicio(TamArchivoE, TamPaginasE + "m.m", NoPaginasE, TituloE, AsuntoE, PClaveE, TipoE, VersionE, AppE, ImagenesE, FuentesE);
         e.edicion(list);
-                                               
+                                            
 
     }//GEN-LAST:event_EditarBotonActionPerformed
 

@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Peke
+ * @author 
  */
 public class Edicion {
      
