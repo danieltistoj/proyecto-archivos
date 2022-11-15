@@ -6,6 +6,7 @@
 package Interfaz;
 import Clases.PDF;
 import java.io.File;
+import java.io.FileReader;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -42,10 +43,12 @@ public class Principal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtSizeArchivo = new javax.swing.JTextField();
         txtSizePagina = new javax.swing.JTextField();
-        txtVersion = new javax.swing.JTextField();
+        txtAutor = new javax.swing.JTextField();
         txtNumPaginas = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtTitulo1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtVersion1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,8 +106,23 @@ public class Principal extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Titulo:");
 
+        txtSizeArchivo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtSizePagina.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtAutor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtNumPaginas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Version:");
+
+        txtTitulo1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Autor:");
+
+        txtVersion1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -113,6 +131,7 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -123,9 +142,10 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtSizeArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSizePagina, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtVersion1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -148,10 +168,14 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(txtTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addComponent(txtVersion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(117, Short.MAX_VALUE))
+                    .addComponent(txtVersion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -199,9 +223,12 @@ public class Principal extends javax.swing.JFrame {
             if(dir.isDirectory()){
                 System.out.println("Directorio");
             }else{
-                PDF pdf = new PDF(dir);
-                this.txtVersion.setText(pdf.getVersion());
+                PDF pdf = new PDF(dir,this.rutaArchivo);
+                this.txtVersion1.setText(pdf.getVersion());
                 this.txtSizeArchivo.setText(pdf.SizePdf());
+                String[] datos = pdf.getAutor();
+                this.txtAutor.setText(datos[0]);
+                this.txtTitulo1.setText(datos[1]);
             }
         }
     }//GEN-LAST:event_btnCargarActionPerformed
@@ -249,13 +276,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField txtAutor;
     private javax.swing.JTextField txtNumPaginas;
     private javax.swing.JTextField txtSizeArchivo;
     private javax.swing.JTextField txtSizePagina;
     private javax.swing.JTextField txtTitulo1;
-    private javax.swing.JTextField txtVersion;
+    private javax.swing.JTextField txtVersion1;
     // End of variables declaration//GEN-END:variables
 }
