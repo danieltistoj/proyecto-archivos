@@ -14,10 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JFileChooser;
 
-/**
- *
- * @author HP
- */
+
 public class formMetadata extends javax.swing.JDialog {
     ArrayList<PDF> pdfs=new ArrayList<PDF>();
 

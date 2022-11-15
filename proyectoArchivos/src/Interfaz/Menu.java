@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package Interfaz;
-
+import com.mycompany.proyect2.*;
+import com.mycompany.proyecto.*;
 import java.awt.Color;
 
 /**
@@ -20,6 +21,8 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Lecto de metadatos PDF");
+        panelArchivo.setToolTipText("Cargas Archivos");
+        panelCarpetas.setToolTipText("Cargar Carpeta");
     }
 
     /**
@@ -48,6 +51,9 @@ public class Menu extends javax.swing.JFrame {
         panelArchivo.setForeground(new java.awt.Color(255, 255, 255));
         panelArchivo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelArchivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelArchivoMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelArchivoMouseEntered(evt);
             }
@@ -74,6 +80,9 @@ public class Menu extends javax.swing.JFrame {
         panelCarpetas.setForeground(new java.awt.Color(51, 255, 255));
         panelCarpetas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelCarpetas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCarpetasMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelArchivoMouseEntered(evt);
             }
@@ -183,6 +192,15 @@ public class Menu extends javax.swing.JFrame {
             panelCarpetas.setBackground(new Color(204,204,204));
         }
     }//GEN-LAST:event_panelArchivoMouseExited
+
+    private void panelArchivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelArchivoMouseClicked
+       visualizador menu = new visualizador();
+       menu.setVisible(true);
+    }//GEN-LAST:event_panelArchivoMouseClicked
+
+    private void panelCarpetasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCarpetasMouseClicked
+        new formMetadata(this, true).setVisible(true);
+    }//GEN-LAST:event_panelCarpetasMouseClicked
 
     /**
      * @param args the command line arguments
