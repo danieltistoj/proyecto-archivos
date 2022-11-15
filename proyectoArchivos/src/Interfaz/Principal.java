@@ -229,6 +229,10 @@ public class Principal extends javax.swing.JFrame {
                 String[] datos = pdf.getAutor();
                 this.txtAutor.setText(datos[0]);
                 this.txtTitulo1.setText(datos[1]);
+                
+//                int noPaginas = pdf.NumPagFinder();
+//                 String p = Integer.toString(noPaginas);
+//                this.txtSizePagina.setText(p);
             }
         }
     }//GEN-LAST:event_btnCargarActionPerformed
